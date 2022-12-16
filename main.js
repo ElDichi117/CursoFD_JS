@@ -5,10 +5,14 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const aside = document.querySelector('.product-detail');
 const cardsContainer = document.querySelector('.cards-container');
+const asideSecondary = document.querySelector('.product-detail-second');
+const closeButtonAside = document.querySelector('.product-detail-close');
+
                             //Evento , función
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMobile);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+closeButtonAside.addEventListener('click', toggleCloseButtonAside);
 
 function toggleDesktopMenu(event){
     event.preventDefault();
@@ -115,6 +119,7 @@ function renderProducts(arr) {
         // product= {name, price, image} -> product.image
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);// Asignamos el atributo de manera dinámica
+        productImg.addEventListener('click',showDetails);
         
         const productInfo = document.createElement('div');// Generamos el segundo div
         productInfo.classList.add('product-info');// Le asignamos su hijo
@@ -146,3 +151,56 @@ function renderProducts(arr) {
 }
       
 renderProducts(productList);
+
+/* 
+<aside class="product-detail-second inactive">
+    <div class="product-detail-close-second">
+      <img src="./icons/icon_close.png" alt="close">
+    </div>
+    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+    <div class="product-info-second">
+      <p>$35,00</p>
+      <p>Bike</p>
+      <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+      <button class="primary-button-second add-to-cart-button-second">
+        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+        Add to cart
+      </button>
+    </div>
+</aside> */
+
+function showDetails(arr){
+    
+    asideSecondary.classList.remove('inactive');
+    //#region Maquetación en HTML
+    const productInfoAside = document.createElement('div');
+    productInfoAside.classList.add('product-info-second');
+
+    //Mostramos la información del producto
+    const productPriceAside = document.createElement('p');
+    productPriceAside.innerText = '$' + product.price;
+    productInfoAside.appendChild(productPriceAside);  
+
+    const productNameAside = document.createElement('p');
+    productNameAside.innerText = product.name;  
+    productInfoAside.appendChild(productNameAside);  
+
+    const productDescriptionAside = document.createElement('p');
+    productDescriptionAside.innerText = product.name;  
+    productInfoAside.appendChild(productDescriptionAside);  
+
+    const buttonAside = document.createElement('button');
+    buttonAside.classList.add('primary-button-second');
+    buttonAside.classList.add('add-to-cart-button-second');
+    buttonAside.innerText = "Add to cart";
+    
+    const imgButtonAside = document.createElement('img');
+    imgButtonAside.setAttribute('src','./icons/bt_add_to_cart.svg');
+    buttonAside.appendChild(imgButtonAside);
+
+    productInfoAside.appendChild(buttonAside);
+   
+    asideSecondary.appendChild(productInfoAside);    
+    //#endregion
+
+}
