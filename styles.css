@@ -1,4 +1,5 @@
 /* Estilos generales de la página */
+
 :root {
     --white: #FFFFFF;
     --black: #000000;
@@ -15,6 +16,7 @@ body {
 }
 
 /* Estilos del navbar */
+
 .inactive{/**/
     display: none;
 }
@@ -88,6 +90,7 @@ nav {
 }
 
 /* Estilos del menu desktop */
+
 .desktop-menu {
     position: absolute;
     background-color: var(--white);
@@ -127,6 +130,7 @@ nav {
 }
 
 /* Estilos del menu mobile */
+
 .mobile-menu {
     position: absolute;
     background-color: var(--white);
@@ -177,6 +181,7 @@ nav {
 .title-container img {
     transform: rotate(180deg);
     margin-right: 14px;
+    cursor: pointer;
 }
 .title {
     font-size: var(--lg);
@@ -240,6 +245,7 @@ nav {
 }
 
 /* Product list♦ */
+
 .cards-container {
     display: grid;
     margin-top: 20px;

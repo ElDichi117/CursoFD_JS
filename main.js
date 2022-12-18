@@ -11,12 +11,13 @@ const productImageInfor   = document.querySelector('.product-detail-second > img
 const labelPriceInfo      = document.querySelector('.product-info-second p:nth-child(1)')
 const labelNameInfo       = document.querySelector('.product-info-second p:nth-child(2)')
 const labelInforInfo      = document.querySelector('.product-info-second p:nth-child(3)')
-
+const arrowIconAside = document.querySelector('#arrow');
                             //Evento , función
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMobile);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 closeIconAside.addEventListener('click',closeProductDetailAside)
+arrowIconAside.addEventListener('click', closeMenuShoppingCard);
 
 function toggleDesktopMenu(event){
     event.preventDefault();
@@ -62,7 +63,7 @@ function toggleCarritoAside(event){
         asideSecondary.classList.add('inactive');// Cerramos el menu
     }
     
-    aside.classList.toggle('inactive');
+    aside.classList.remove('inactive');
 }
 
 function openProductDetailAside(event){
@@ -72,6 +73,10 @@ function openProductDetailAside(event){
 }
 function closeProductDetailAside(){
     asideSecondary.classList.add("inactive");
+}
+
+function closeMenuShoppingCard(){
+    aside.classList.add('inactive');
 }
 
 const productList = [];
