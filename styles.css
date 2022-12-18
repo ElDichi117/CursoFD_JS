@@ -63,12 +63,14 @@ nav {
     color: var(--very-light-pink);
     font-size: var(--sm);
     margin-right: 12px;
+    cursor: pointer;
 }
 .navbar-email:hover{
     color: var(--hospital-green);
 }
 .navbar-shopping-cart {
     position: relative;
+    cursor: pointer;
 }
 .navbar-shopping-cart div {
     width: 16px;
@@ -153,6 +155,7 @@ nav {
 .email {
     font-size: var(--sm);
     font-weight: 300 !important;
+    cursor: pointer;
 }
 .sign-out {
     font-size: var(--sm);
@@ -378,6 +381,12 @@ nav {
     .product-detail-second {
         width: 100%;
     }
+    .product-detail-second {
+        height: calc(100vh - var(--navHeight));
+        width: 100%;
+        position: fixed;
+        top: 60px;
+      }
 }
 
 @media (min-width: 641px){
